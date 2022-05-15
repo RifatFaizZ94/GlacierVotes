@@ -12,6 +12,10 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.logging.Logger;
@@ -33,6 +37,34 @@ import me.khuirulhuda.glaciervotes.Main;
 
 public class Vote implements Listener {
 
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (sender instanceof Player) {
+            voteone(sender);
+        }else{
+            player.sendMessage("In-game please!");
+        }
+        return true;
+    }
+    
+    public void voteone(sender player) {
+        final boolean shouldNotice = Main.getInstance().getConfig().getBoolean("notice");
+        final String nvmsg = Main.getInstance().getConfig().getString("nvmessage");
+        final boolean debugmode = Main.getInstance().getConfig().getBoolean("debug");
+            if (debugmode) {
+                debug("Player Joined");
+            }
+        final String apikey = Main.getInstance().getConfig().getString("apikey");
+      
+            if (debugmode) {
+                debug("Using API KEY : "+apikey);
+            }
+      
+        final Player player = player.getPlayer();
+        String name = player.getName();
+            if (debugmode) {
+                debug("Player Joined "+name);
+            }
+    }
     @EventHandler(priority=EventPriority.HIGHEST)
     public void onPlayerJoin(PlayerJoinEvent event) {
       
