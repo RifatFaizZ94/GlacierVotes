@@ -18,7 +18,7 @@ public class Main extends JavaPlugin implements Listener {
         INSTANCE = this;
         saveDefaultConfig();
         this.getCommand("gvreload").setExecutor(new Reload());
-        this.getCommand("vote").setExecutor(new VoteCommand());
+        this.getCommand("vote").setExecutor(new Vote());
         Bukkit.getPluginManager().registerEvents(new Vote(), this);
         this.getLogger().info(ChatColor.GREEN+"GlacierVotes Successfully Enabled");
         int pluginId = 11531; //DON'T TOUCH!
