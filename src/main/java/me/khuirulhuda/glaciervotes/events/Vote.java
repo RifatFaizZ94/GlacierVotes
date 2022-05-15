@@ -139,7 +139,6 @@ if ( 200 <= responseCode && responseCode <= 299 ) {
         });
       }
 }
-    player.sendMessage("Terimakasih sudah vote");
     String claimapiurl = "http://minecraftpocket-servers.com/api/?action=post&object=votes&element=claim&key="+apikey+"&username="+fnamee;
  
   try {
